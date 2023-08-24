@@ -1809,33 +1809,30 @@
                             <div class="col-md-11 pl-0">
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="far fa-user"></i></span>
-                                    <input type="text" class="form-control fr" placeholder="Enter Your name"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_name">
+                                    <input type="text" class="form-control fr" id="name" placeholder="Enter Your name">
                                 </div>
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="fas fa-phone-alt"></i></span>
                                     <input type="number" class="form-control fr" placeholder="Enter Your contact Number"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_mobile">
+                                        id="mobile">
                                 </div>
                                 <div class="input-group date-in align-items-center mb-3">
                                     <span><i class="fas fa-comment-alt fa-flip-horizontal"></i></span>
-                                    <input type="text" class="form-control fr"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_date"
+                                    <input type="text" class="form-control fr" id="goal"
                                         placeholder="Enter Fitness Goal">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="btn" type="button">Inquiry Now</button>
+                        <button class="btn" type="button" onclick="sendSecondForm()">Inquiry Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./js/jquery.flashy.min.js"></script>
     <script src="./js/jquery.min.js"></script>
@@ -1854,58 +1851,97 @@
 
     <script type="text/javascript">
         (function () {
-            emailjs.init("OqU-2F2WKPuPs68B9");
+            emailjs.init("CMAKgFPVVWVB_e57t");
         })();
     </script>
     <script>
-        $(document).ready(function () {
-            $("#review-1").click(function () {
-                $("#review-1").addClass("btn-branch-active");
-                $("#review-2, #review-3, #review-4, #review-5").removeClass("btn-branch-active");
-                $(".review-1").fadeIn();
-                $(".review-2, .review-3, .review-4, .review-5").fadeOut();
-            });
-            $("#review-2").click(function () {
-                $("#review-2").addClass("btn-branch-active");
-                $("#review-1, #review-3, #review-4, #review-5").removeClass("btn-branch-active");
-                $(".review-2").fadeIn();
-                $(".review-1, .review-3, .review-4, .review-5").fadeOut();
-            });
-            $("#review-3").click(function () {
-                $("#review-3").addClass("btn-branch-active");
-                $("#review-1, #review-2, #review-4, #review-5").removeClass("btn-branch-active");
-                $(".review-3").fadeIn();
-                $(".review-1, .review-2, .review-4, .review-5").fadeOut();
-            });
-            $("#review-4").click(function () {
-                $("#review-4").addClass("btn-branch-active");
-                $("#review-1, #review-2, #review-3, #review-5").removeClass("btn-branch-active");
-                $(".review-4").fadeIn();
-                $(".review-1, .review-2, .review-3, .review-5").fadeOut();
-            });
-            $("#review-5").click(function () {
-                $("#review-5").addClass("btn-branch-active");
-                $("#review-1, #review-2, #review-3, #review-4").removeClass("btn-branch-active");
-                $(".review-5").fadeIn();
-                $(".review-1, .review-2, .review-3, .review-4").fadeOut();
-            });
-        });
-    </script>
-    <script>
-        function opneform() {
-            $('#poupform').modal('show');
-        }
-        function popupclose() {
-            $('#poupform').modal('hide');
+        function sendMail() {
+            const name = document.getElementById("Name").value;
+            const email = document.getElementById("Sender").value;
+            const mobile = document.getElementById("Number").value;
+            const message = document.getElementById("Message").value;
+
+            const formData = {
+                from_name: name,
+                to_email: email,
+                mobile: mobile,
+                message: message,
+            };
+
+            emailjs.send("service_bqjkpi3", "template_7bs8sxl", formData)
+                .then(function (response) {
+                    console.log("Email sent successfully", response.status, response.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you for contacting us',
+                        text: 'We will contact you soon.'
+                    });
+
+                    // Reset the form after successful submission if needed
+                    document.getElementById("Name").value = "";
+                    document.getElementById("Sender").value = "";
+                    document.getElementById("Number").value = "";
+                    document.getElementById("Message").value = "";
+
+                    return false;
+                })
+                .catch(function (error) {
+                    console.error("Error sending email", error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid credentials',
+                        text: 'Please enter valid email, name, and mobile.'
+                    });
+                    
+                    return false;
+                });
         }
 
-        $(window).scroll(function () {
-            var scrolled = $(window).scrollTop();
-            if (scrolled > 200) $('.btn-flot').fadeIn('slow');
-            if (scrolled < 200) $('.btn-flot').fadeOut('slow');
-        });
+        function sendSecondForm() {
+            const name = document.getElementById("name").value;
+            const mobile = document.getElementById("mobile").value;
+            const goal = document.getElementById("goal").value;
+
+            const formData = {
+                name: name,
+                mobile: mobile,
+                goal: goal,
+            };
+
+            emailjs.send("service_fzm84qc", "template_24czcj9", formData)
+                .then(function (response) {
+                    console.log("Second form submitted successfully", response.status, response.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you for contacting us',
+                        text: 'We will contact you soon.'
+                    });
+
+                    // Reset the form after successful submission if needed
+                    document.getElementById("name").value = "";
+                    document.getElementById("mobile").value = "";
+                    document.getElementById("goal").value = "";
+
+                    return false;
+                })
+                .catch(function (error) {
+                    console.error("Error sending email", error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid credentials',
+                        text: 'Please enter valid name, mobile, and goal.'
+                    });
+
+                    return false;
+                });
+        }
+
     </script>
-    <script>
+    <!-- <script>
         function sendMail() {
             var params = {
                 name: document.getElementById("Name").value,
@@ -1944,12 +1980,60 @@
                     // alert("There was an error sending your message. Please try again later.");
                 });
         }
-    </script>
+    </script> -->
     </script>
     <script>
         $(window).on('load', function () {
             $(".loder").fadeOut(3000);
             $(".main").fadeIn(3000);
+        });
+    </script>
+    <script>
+        function opneform() {
+            $('#poupform').modal('show');
+        }
+        function popupclose() {
+            $('#poupform').modal('hide');
+        }
+
+        $(window).scroll(function () {
+            var scrolled = $(window).scrollTop();
+            if (scrolled > 200) $('.btn-flot').fadeIn('slow');
+            if (scrolled < 200) $('.btn-flot').fadeOut('slow');
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#review-1").click(function () {
+                $("#review-1").addClass("btn-branch-active");
+                $("#review-2, #review-3, #review-4, #review-5").removeClass("btn-branch-active");
+                $(".review-1").fadeIn();
+                $(".review-2, .review-3, .review-4, .review-5").fadeOut();
+            });
+            $("#review-2").click(function () {
+                $("#review-2").addClass("btn-branch-active");
+                $("#review-1, #review-3, #review-4, #review-5").removeClass("btn-branch-active");
+                $(".review-2").fadeIn();
+                $(".review-1, .review-3, .review-4, .review-5").fadeOut();
+            });
+            $("#review-3").click(function () {
+                $("#review-3").addClass("btn-branch-active");
+                $("#review-1, #review-2, #review-4, #review-5").removeClass("btn-branch-active");
+                $(".review-3").fadeIn();
+                $(".review-1, .review-2, .review-4, .review-5").fadeOut();
+            });
+            $("#review-4").click(function () {
+                $("#review-4").addClass("btn-branch-active");
+                $("#review-1, #review-2, #review-3, #review-5").removeClass("btn-branch-active");
+                $(".review-4").fadeIn();
+                $(".review-1, .review-2, .review-3, .review-5").fadeOut();
+            });
+            $("#review-5").click(function () {
+                $("#review-5").addClass("btn-branch-active");
+                $("#review-1, #review-2, #review-3, #review-4").removeClass("btn-branch-active");
+                $(".review-5").fadeIn();
+                $(".review-1, .review-2, .review-3, .review-4").fadeOut();
+            });
         });
     </script>
     <script>

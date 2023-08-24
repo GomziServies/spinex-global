@@ -1157,35 +1157,33 @@
                 </div>
                 <div class="modal-body mb-0 p-0">
                     <div class="text-center d-block" id="formmi">
-                        <div class="row justify-content-center mb-4">
+                         <div class="row justify-content-center mb-4">
                             <div class="col-md-11 pl-0">
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="far fa-user"></i></span>
-                                    <input type="text" class="form-control fr" placeholder="Enter Your name"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_name">
+                                    <input type="text" class="form-control fr" id="name" placeholder="Enter Your name">
                                 </div>
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="fas fa-phone-alt"></i></span>
                                     <input type="number" class="form-control fr" placeholder="Enter Your contact Number"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_mobile">
+                                        id="mobile">
                                 </div>
                                 <div class="input-group date-in align-items-center mb-3">
                                     <span><i class="fas fa-comment-alt fa-flip-horizontal"></i></span>
-                                    <input type="text" class="form-control fr"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_date"
+                                    <input type="text" class="form-control fr" id="goal"
                                         placeholder="Enter Fitness Goal">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <button class="btn" type="button">Inquiry Now</button>
+                  <div class="text-center">
+                        <button class="btn" type="button" onclick="sendSecondForm()">Inquiry Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/js/jquery.flashy.min.js"></script>
     <script src="/plugins/bootstrap/bootstrap.min.js"></script>
@@ -1195,12 +1193,6 @@
     <link href="/css/effect.css" rel="stylesheet">
     <script src="/js/sweetalert2.js"></script>
     <script src="/js/owl.carousel.js"></script>
-
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("OqU-2F2WKPuPs68B9");
-        })();
-    </script>
     <script>
         function opneform() {
             $('#poupform').modal('show');
@@ -1258,45 +1250,97 @@
             });
         });
     </script>
+     <script type="text/javascript">
+        (function () {
+            emailjs.init("CMAKgFPVVWVB_e57t");
+        })();
+    </script>
     <script>
         function sendMail() {
-            var params = {
-                name: document.getElementById("Name").value,
-                email_id: document.getElementById("Sender").value,
-                mobile: document.getElementById("Number").value,
-                message: document.getElementById("Message").value
+            const name = document.getElementById("Name").value;
+            const email = document.getElementById("Sender").value;
+            const mobile = document.getElementById("Number").value;
+            const message = document.getElementById("Message").value;
+
+            const formData = {
+                from_name: name,
+                to_email: email,
+                mobile: mobile,
+                message: message,
             };
 
-            const serviceID = "service_r6qpg89";
-            const templateID = "template_r6tz9nn";
-
-            emailjs.send(serviceID, templateID, params)
+            emailjs.send("service_bqjkpi3", "template_7bs8sxl", formData)
                 .then(function (response) {
+                    console.log("Email sent successfully", response.status, response.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you for contacting us',
+                        text: 'We will contact you soon.'
+                    });
+
+                    // Reset the form after successful submission if needed
                     document.getElementById("Name").value = "";
                     document.getElementById("Sender").value = "";
                     document.getElementById("Number").value = "";
                     document.getElementById("Message").value = "";
 
-                    console.log("Email sent successfully", response.status, response.text);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thanks you for contact us',
-                        text: 'We will contact you soon.'
-                    })
                     return false;
-                    // alert("Your message has been sent successfully!");
                 })
                 .catch(function (error) {
                     console.error("Error sending email", error);
+
                     Swal.fire({
                         icon: 'error',
-                        title: 'Invalid cerdinatiol',
-                        text: 'Please enter valid email, name, mobile'
-                    })
+                        title: 'Invalid credentials',
+                        text: 'Please enter valid email, name, and mobile.'
+                    });
+                    
                     return false;
-                    // alert("There was an error sending your message. Please try again later.");
                 });
         }
+
+        function sendSecondForm() {
+            const name = document.getElementById("name").value;
+            const mobile = document.getElementById("mobile").value;
+            const goal = document.getElementById("goal").value;
+
+            const formData = {
+                name: name,
+                mobile: mobile,
+                goal: goal,
+            };
+
+            emailjs.send("service_fzm84qc", "template_24czcj9", formData)
+                .then(function (response) {
+                    console.log("Second form submitted successfully", response.status, response.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you for contacting us',
+                        text: 'We will contact you soon.'
+                    });
+
+                    // Reset the form after successful submission if needed
+                    document.getElementById("name").value = "";
+                    document.getElementById("mobile").value = "";
+                    document.getElementById("goal").value = "";
+
+                    return false;
+                })
+                .catch(function (error) {
+                    console.error("Error sending email", error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid credentials',
+                        text: 'Please enter valid name, mobile, and goal.'
+                    });
+
+                    return false;
+                });
+        }
+
     </script>
     <script>
         $(window).on('load', function () {

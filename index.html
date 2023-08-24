@@ -1941,46 +1941,7 @@
         }
 
     </script>
-    <!-- <script>
-        function sendMail() {
-            var params = {
-                name: document.getElementById("Name").value,
-                email_id: document.getElementById("Sender").value,
-                mobile: document.getElementById("Number").value,
-                message: document.getElementById("Message").value
-            };
 
-            const serviceID = "service_r6qpg89";
-            const templateID = "template_r6tz9nn";
-
-            emailjs.send(serviceID, templateID, params)
-                .then(function (response) {
-                    document.getElementById("Name").value = "";
-                    document.getElementById("Sender").value = "";
-                    document.getElementById("Number").value = "";
-                    document.getElementById("Message").value = "";
-
-                    console.log("Email sent successfully", response.status, response.text);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thanks you for contact us',
-                        text: 'We will contact you soon.'
-                    })
-                    return false;
-                    // alert("Your message has been sent successfully!");
-                })
-                .catch(function (error) {
-                    console.error("Error sending email", error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Invalid cerdinatiol',
-                        text: 'Please enter valid email, name, mobile'
-                    })
-                    return false;
-                    // alert("There was an error sending your message. Please try again later.");
-                });
-        }
-    </script> -->
     </script>
     <script>
         $(window).on('load', function () {

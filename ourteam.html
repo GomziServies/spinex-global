@@ -2,29 +2,34 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DR. NIRAJ BHANSALI</title>
+    <title>Our Team Members</title>
     <meta name="Description"
         content="Discover the causes, symptoms, and treatment options for elbow pain. Learn how physiotherapy and specialized programs can help alleviate pain and improve elbow function.">
     <meta name="keywords"
         content="elbow pain, causes of elbow pain, tennis elbow, golfer's elbow, elbow bursitis, elbow tendinitis, elbow sprain, elbow fracture">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/webp" href="../images/spinex.webp">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../css/spinax.css">
-    <link rel="stylesheet" type="text/css" href="../css/media.css">
-    <link rel="stylesheet" type="text/css" href="../css/owl-style.css">
-    <link rel="stylesheet" type="text/css" href="../css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="../css/owl.theme.css">
-    <script type="text/javascript" src="../js/jquery-3.5.1.slim.min.js"></script>
-    <script type="text/javascript" src="../js/popper.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="../js/owl.carousel.js"></script>
-    <script type="text/javascript" src="../js/lazy-load.js"></script>
+    <link rel="icon" type="image/webp" href="./images/spinex.webp">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/popup-form-style.css">
+    <link rel="stylesheet" type="text/css" href="./css/spinax.css">
+    <link rel="stylesheet" type="text/css" href="./css/media.css">
+    <link rel="stylesheet" type="text/css" href="./css/owl-style.css">
+    <link rel="stylesheet" type="text/css" href="./css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="./css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="./css/wow.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="./js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./js/owl.carousel.js"></script>
+    <script type="text/javascript" src="./js/lazy-load.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <script type="text/javascript">
         function openside() {
             document.getElementById('demo').style.width = '100%';
@@ -127,6 +132,7 @@
                 <a href="/aboutus.html">About Us</a>
                 <a href="/condition-we-tret.html">Condition We Treat</a>
                 <a href="/home-care-page.html">Home Care</a>
+                <a href="/ourteam.html">Our Team</a>
                 <a href="/blog.html">Blog</a>
                 <a href="/contactus.html">Contact</a>
                 <ul class="mobileUserInfo aa">
@@ -318,46 +324,6 @@
             </div>
         </div>
     </section>
-    <section class="">
-        <div class="bg-full-bd py-5" style="background-image: url(/images/contect.webp);background-attachment: local;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-5">
-                        <div class="contact-us">
-                            <h2>Contact Us For <br> More Details</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5">
-                        <div class="contact-us-form">
-                            <div class="mb-4">
-                                <h4 class="fill">Fill The Form :-</h4>
-                            </div>
-                            <form action="" class="mb-0">
-                                <div>
-                                    <input type="text" placeholder="Name" id="Name" class="form-control in-put"
-                                        required>
-                                </div>
-                                <div>
-                                    <input type="text" placeholder="Email" id="Sender" class="form-control in-put"
-                                        required>
-                                </div>
-                                <div>
-                                    <input type="number" placeholder="Mobile" id="Number" class="form-control in-put"
-                                        required>
-                                </div>
-                                <div>
-                                    <textarea name="massages" placeholder="Massages" id="Message" class="in-put"
-                                        required></textarea>
-                                </div>
-                                <button type="button" class="submit-btn" onclick="sendMail()">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <footer>
         <div class="container-fluid f-img-bg text-light">
             <div class="container">
@@ -528,45 +494,90 @@
                             <div class="col-md-11 pl-0">
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="far fa-user"></i></span>
-                                    <input type="text" class="form-control fr" placeholder="Enter Your name"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_name">
+                                    <input type="text" class="form-control fr" id="name" placeholder="Enter Your name">
                                 </div>
                                 <div class="input-group align-items-center mb-3">
                                     <span><i class="fas fa-phone-alt"></i></span>
                                     <input type="number" class="form-control fr" placeholder="Enter Your contact Number"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_contact_mobile">
+                                        id="mobile">
                                 </div>
                                 <div class="input-group date-in align-items-center mb-3">
                                     <span><i class="fas fa-comment-alt fa-flip-horizontal"></i></span>
-                                    <input type="text" class="form-control fr"
-                                        id="txt_bookFreeAppointmentWithBestDietitian_date"
+                                    <input type="text" class="form-control fr" id="goal"
                                         placeholder="Enter Fitness Goal">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <button class="btn" type="button">Inquiry Now</button>
+                   <div class="text-center">
+                        <button class="btn" type="button" onclick="sendSecondForm()">Inquiry Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="/js/jquery.flashy.min.js"></script>
-    <script src="/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="./js/jquery.flashy.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <link href="/css/flashy.min.css" rel="stylesheet">
-    <link href="/css/effect.css" rel="stylesheet">
-    <script src="/js/sweetalert2.js"></script>
-    <script src="/js/owl.carousel.js"></script>
+    <link href="./css/flashy.min.css" rel="stylesheet">
+    <link href="./css/effect.css" rel="stylesheet">
+    <script src="./js/sweetalert2.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/wow.min.js"></script>
+
 
     <script type="text/javascript">
         (function () {
-            emailjs.init("OqU-2F2WKPuPs68B9");
+            emailjs.init("CMAKgFPVVWVB_e57t");
         })();
+    </script>
+    <script>
+        function sendSecondForm() {
+            const name = document.getElementById("name").value;
+            const mobile = document.getElementById("mobile").value;
+            const goal = document.getElementById("goal").value;
+
+            const formData = {
+                name: name,
+                mobile: mobile,
+                goal: goal,
+            };
+
+            emailjs.send("service_fzm84qc", "template_24czcj9", formData)
+                .then(function (response) {
+                    console.log("Second form submitted successfully", response.status, response.text);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank you for contacting us',
+                        text: 'We will contact you soon.'
+                    });
+
+                    // Reset the form after successful submission if needed
+                    document.getElementById("name").value = "";
+                    document.getElementById("mobile").value = "";
+                    document.getElementById("goal").value = "";
+
+                    return false;
+                })
+                .catch(function (error) {
+                    console.error("Error sending email", error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid credentials',
+                        text: 'Please enter valid name, mobile, and goal.'
+                    });
+
+                    return false;
+                });
+        }
+
     </script>
     <script>
         function opneform() {
@@ -582,47 +593,6 @@
             if (scrolled < 200) $('.btn-flot').fadeOut('slow');
         });
     </script>
-    <script>
-        function sendMail() {
-            var params = {
-                name: document.getElementById("Name").value,
-                email_id: document.getElementById("Sender").value,
-                mobile: document.getElementById("Number").value,
-                message: document.getElementById("Message").value
-            };
-
-            const serviceID = "service_r6qpg89";
-            const templateID = "template_r6tz9nn";
-
-            emailjs.send(serviceID, templateID, params)
-                .then(function (response) {
-                    document.getElementById("Name").value = "";
-                    document.getElementById("Sender").value = "";
-                    document.getElementById("Number").value = "";
-                    document.getElementById("Message").value = "";
-
-                    console.log("Email sent successfully", response.status, response.text);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thanks you for contact us',
-                        text: 'We will contact you soon.'
-                    })
-                    return false;
-                    // alert("Your message has been sent successfully!");
-                })
-                .catch(function (error) {
-                    console.error("Error sending email", error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Invalid cerdinatiol',
-                        text: 'Please enter valid email, name, mobile'
-                    })
-                    return false;
-                    // alert("There was an error sending your message. Please try again later.");
-                });
-        }
-    </script>
-
     <script>
         $(window).on('load', function () {
             $(".loder").fadeOut(3000);

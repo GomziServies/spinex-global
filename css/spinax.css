@@ -2070,20 +2070,8 @@ header .active {
 .achievement-block .achievement-content {
   position: relative;
   min-height: 188px;
-  border-left: 1px solid #1e9322;
   padding-left: 30px;
 }
-
-.achievement-block .achievement-content:before {
-  position: absolute;
-  content: '';
-  left: -200px;
-  bottom: -48px;
-  height: 1px;
-  right: -200px;
-  background-color: #1e9322;
-}
-
 .achievement-block h3 {
   font-weight: 600;
   font-size: 26px;
@@ -2108,20 +2096,7 @@ header .active {
   font-weight: 600;
   font-size: 26px;
   color: #000;
-  margin-top: 40px;
-  padding-top: 30px;
-  padding-left: 30px;
-}
 
-.achievement-block .year:before {
-  position: absolute;
-  content: '';
-  left: 0px;
-  top: 0px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50px;
-  background-color: #1e9322;
 }
 
 #myvideo {
@@ -2326,21 +2301,13 @@ ul.social li a {
 }
 
 
-#number1 {
-  margin-left: 30px;
-}
 
-#number2 {
-  margin-left: 70px;
-}
+
 
 #number3 {
   margin-left: 30px;
 }
 
-#number4 {
-  margin-left: 70px;
-}
 
 
 .submenu-options {

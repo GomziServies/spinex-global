@@ -128,7 +128,6 @@
 .log {
   display: inline-block;
   width: 60px;
-  margin-left: 20px;
   position: absolute;
   left: 50px;
   top: 50%;
@@ -211,6 +210,8 @@ ul li {
 body {
   font-family: "Nunito", sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+ 
 }
 
 .btn {
@@ -989,8 +990,8 @@ h2 {
   margin-left: 0;
   height: 50px;
   width: 50px;
-  bottom: 168;
-  margin-left: 200;
+  bottom: 168px;
+  margin-left: 200px;
   justify-content: center;
 }
 
@@ -1961,8 +1962,8 @@ header .active {
 }
 
 .black-before-1 img {
-  width: 760;
-  height: 415;
+  width: 760px;
+  height: 415px;
   border-radius: 10px;
   margin-left: 17%;
 }
@@ -2300,12 +2301,20 @@ ul.social li a {
   display: none;
 }
 
+#number22 {
+  margin-left: 70px;
+}
 
-
-
+#number44 {
+  margin-left: 70px;
+}
 
 #number3 {
   margin-left: 30px;
+}
+
+#number1{
+  margin-left: 25px;
 }
 
 

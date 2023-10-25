@@ -211,7 +211,7 @@ body {
   font-family: "Nunito", sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
- 
+
 }
 
 .btn {
@@ -1656,7 +1656,7 @@ a {
   font-size: 14px;
 }
 
-.design-form p {
+/* .design-form p {
   border: 2px solid #000;
   width: 220px;
   background-color: transparent;
@@ -1667,7 +1667,7 @@ a {
   border-radius: 6px;
   font-weight: 800;
   cursor: pointer;
-}
+} */
 
 .design-form h2 {
   color: #fff;
@@ -1675,11 +1675,11 @@ a {
   font-family: Nunito, sans-serif;
 }
 
-.design-form p:hover {
+/* .design-form p:hover {
   background-color: #000;
   color: #fff;
   border: 2px solid #000;
-}
+} */
 
 
 .design-form p:hover i {
@@ -2073,6 +2073,7 @@ header .active {
   min-height: 188px;
   padding-left: 30px;
 }
+
 .achievement-block h3 {
   font-weight: 600;
   font-size: 26px;
@@ -2313,7 +2314,7 @@ ul.social li a {
   margin-left: 30px;
 }
 
-#number1{
+#number1 {
   margin-left: 25px;
 }
 
@@ -2329,4 +2330,73 @@ ul.social li a {
 
 .dropdown:hover .submenu-options {
   display: block;
+}
+
+.scratch-card {
+  width: 300px;
+  margin: 0 auto;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.3);
+}
+
+.scratch-container {
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  height: 130px;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scratch-canvas {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.code {
+  position: relative;
+  visibility: hidden;
+  margin: 0 auto;
+  text-align: center;
+  color: #5a2ff5;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.fade-out {
+  -webkit-animation: fade-out 0.8s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.modal-header {
+  justify-content: right !important;
+}
+
+
+.floting-button {
+  position: fixed;
+  bottom: -1px;
+  z-index: 999;
 }

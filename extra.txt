@@ -1799,16 +1799,6 @@
         </div>
     </footer>
 
-    <div class="floting-button d-block d-md-none">
-        <div class="col-12 px-0 text-center">
-            <a onclick="opneform()"
-                style="border: 3px solid #50C053; color: #50C053;background-color: #1b1a1a; font-size: 25px; font-weight: 600; width: 100vw;"
-                class="btn">
-                Book Free Consultation
-            </a>
-        </div>
-    </div>
-
     <div id="div_modal"></div>
     <div class="modal fade" id="poupform">
         <div class="modal-dialog wi-dt" role="document">
@@ -1865,11 +1855,16 @@
                 </div>
                 <div class="modal-body mb-0 p-0 text-center">
                     <div>
-                        <h2 class="mb-2" style="color: #000;">Book Free Consultation </h2>
-                        <div class="">
-                            <img src="/images/spinexcoupon.jpeg" alt="" width="80%">
+                        <h2>Get 30% </h2>
+                        <h3>On Your Next Purchase</h3>
+                        <p>Scratch & Get Your Coupon Code</p>
+                        <div id="scratch-container" class="scratch-container">
+                            <canvas class="scratch-canvas" id="scratch-canvas" width="300" height="220"></canvas>
+                            <p id="code" class="code" style="visibility: hidden;">
+                                <img id="prize-image" alt="Prize Image" style="display: none; width: 200px;">
+                            </p>
                         </div>
-                        <button class="mt-3" onclick="closeScratchPopupAndOpenForm()">Claim Offer Now</button>
+                        <button onclick="closeScratchPopupAndOpenForm()">Claim Offer Now</button>
                     </div>
                 </div>
             </div>
@@ -1950,7 +1945,160 @@
             }, 1000);
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            var isDrawing, lastPoint;
+            var container = document.getElementById("scratch-container");
+            var canvas = document.getElementById("scratch-canvas");
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+            var ctx = canvas.getContext("2d");
+            var image = new Image();
+            var brush = new Image();
+            var scratched = 45;
+            var isScratched = false; // Flag to check if the user has already scratched
 
+            // Load the scratch card image
+            image.src = "/images/scratchlayer.png"; // Your scratch card image
+            image.onload = function () {
+                ctx.drawImage(image, 0, 0);
+                document.getElementById("code").style.visibility = "visible";
+            };
+
+            // Load the brush for scratching
+            brush.src = "/images/brush.png"; // Your brush image
+
+            canvas.addEventListener("mousedown", handleMouseDown, false);
+            canvas.addEventListener("touchstart", handleMouseDown, false);
+            canvas.addEventListener("mousemove", handleMouseMove, false);
+            canvas.addEventListener("touchmove", handleMouseMove, false);
+            canvas.addEventListener("mouseup", handleMouseUp, false);
+            canvas.addEventListener("touchend", handleMouseUp, false);
+
+            function handlePercentage(filledInPixels, scratched) {
+                filledInPixels = filledInPixels || 0;
+                if (!isScratched && filledInPixels > scratched) {
+                    isScratched = true; // Set the flag to indicate the user has scratched
+
+                    // Determine the user's prize
+                    var random = Math.random(); // Generate a random number between 0 and 1
+                    if (random <= 0.4) {
+                        // 40% chance of 20% off
+                        // Change the prize image
+                        document.getElementById("prize-image").src = "/images/V2.jpg";
+                    } else if (random <= 0.8) {
+                        // 40% chance of 10% off
+                        // Change the prize image
+                        document.getElementById("prize-image").src = "/images/V3.jpg";
+                    } else {
+                        // 20% chance of Free Consultation
+                        // Change the prize image
+                        document.getElementById("prize-image").src = "/images/V1.jpg";
+                    }
+
+                    document.getElementById("prize-image").style.display = "block";
+                    document.getElementById("scratch-canvas").classList.add("fade-out");
+                    document.getElementById("code").style.zIndex = 20;
+                }
+            }
+            // The rest of your code for drawing and handling user interaction remains the same.
+
+            function distanceBetween(point1, point2) {
+                return Math.sqrt(
+                    Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2)
+                );
+            }
+
+            function angleBetween(point1, point2) {
+                return Math.atan2(point2.x - point1.x, point2.y - point1.y);
+            }
+
+            function getFilledInPixels(stride) {
+                if (!stride || stride < 1) {
+                    stride = 1;
+                }
+
+                var pixels = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+                var pdata = pixels.data;
+                var l = pdata.length;
+                var total = l / stride;
+                var count = 0;
+
+                for (var i = (count = 0); i < l; i += stride) {
+                    if (parseInt(pdata[i]) === 0) {
+                        count++;
+                    }
+                }
+
+                return Math.round((count / total) * 100);
+            }
+
+            function getMouse(e, canvas) {
+                var offsetX = 0;
+                var offsetY = 0;
+                var mx;
+                var my;
+
+                if (canvas.offsetParent !== undefined) {
+                    do {
+                        offsetX += canvas.offsetLeft;
+                        offsetY += canvas.offsetTop;
+                    } while ((canvas = canvas.offsetParent));
+                }
+
+                if (!hasTouch()) {
+                    mx = e.pageX - offsetX;
+                    my = e.pageY - offsetY;
+                } else {
+                    var touch = e.touches[0];
+                    mx = touch.pageX - offsetX;
+                    my = touch.pageY - offsetY;
+                }
+
+                return { x: mx, y: my };
+            }
+
+            function handleMouseDown(e) {
+                isDrawing = true;
+                lastPoint = getMouse(e, canvas);
+            }
+
+            function handleMouseMove(e) {
+                if (!isDrawing) {
+                    return;
+                }
+
+                e.preventDefault();
+
+                var currentPoint = getMouse(e, canvas);
+                var dist = distanceBetween(lastPoint, currentPoint);
+                var angle = angleBetween(lastPoint, currentPoint);
+                var x, y;
+
+                for (var i = 0; i < dist; i++) {
+                    x = lastPoint.x + Math.sin(angle) * i - 25;
+                    y = lastPoint.y + Math.cos(angle) * i - 25;
+                    ctx.globalCompositeOperation = "destination-out";
+                    ctx.drawImage(brush, x, y);
+                }
+
+                lastPoint = currentPoint;
+                handlePercentage(getFilledInPixels(60), scratched);
+            }
+
+            function handleMouseUp(e) {
+                isDrawing = false;
+            }
+
+            function hasTouch() {
+                return (
+                    "ontouchstart" in window ||
+                    navigator.maxTouchPoints > 0 ||
+                    navigator.msMaxTouchPoints > 0
+                );
+            }
+        });
+    </script>
     </script>
     <script type="text/javascript">
         (function () {

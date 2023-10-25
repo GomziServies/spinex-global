@@ -1817,7 +1817,7 @@
                     <div class="text-center">
                         <img src="./images/inquiey.webp" class="img-fluid mb-2 ml-2" width="40%"
                             alt="Book Free Appointment">
-                        <h4 class="mb-4"> Book an Inquiry</h4>
+                        <h4 class="mb-4"> Fill Your Details</h4>
                     </div>
                     <button type="button" class="closess closse-mobile p-0"
                         style="background-color: transparent; border:none;" data-dismiss="modal" aria-label="Close">
@@ -1826,27 +1826,30 @@
                 </div>
                 <div class="modal-body mb-0 p-0">
                     <div class="text-center d-block" id="formmi">
-                        <div class="row justify-content-center mb-4">
-                            <div class="col-md-11 pl-0">
-                                <div class="input-group align-items-center mb-3">
-                                    <span><i class="far fa-user"></i></span>
-                                    <input type="text" class="form-control fr" id="name" placeholder="Enter Your name">
+                        <form id="myForm2">
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-11 pl-0">
+                                    <div class="input-group align-items-center mb-3">
+                                        <span><i class="far fa-user"></i></span>
+                                        <input type="text" name="name" placeholder="Name" id="name"
+                                            class="form-control fr">
+                                    </div>
+                                    <div class="input-group align-items-center mb-3">
+                                        <span><i class="fas fa-phone-alt"></i></span>
+                                        <input class="form-control fr" type="number" name="number"
+                                            placeholder="Enter Number" id="number">
+                                    </div>
+                                    <div class="input-group date-in align-items-center mb-3">
+                                        <span><i class="fas fa-comment-alt fa-flip-horizontal"></i></span>
+                                        <input class="form-control fr" type="text" name="goal"
+                                            placeholder="What is your fitness goal?" id="goal">
+                                    </div>
                                 </div>
-                                <div class="input-group align-items-center mb-3">
-                                    <span><i class="fas fa-phone-alt"></i></span>
-                                    <input type="number" class="form-control fr" placeholder="Enter Your contact Number"
-                                        id="mobile">
-                                </div>
-                                <div class="input-group date-in align-items-center mb-3">
-                                    <span><i class="fas fa-comment-alt fa-flip-horizontal"></i></span>
-                                    <input type="text" class="form-control fr" id="goal"
-                                        placeholder="Enter Fitness Goal">
+                                <div class="text-center">
+                                    <button class="btn" type="submit">Submit</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button class="btn" type="button" onclick="showSuccessMessage()">Inquiry Now</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1894,51 +1897,88 @@
     </script>
     <script>
         function closeScratchPopupAndOpenForm() {
-            // Close the scratch card popup
             document.getElementById("ScratchPopup").style.display = "none";
-
-            // Now, open the form (You can replace this with your actual logic)
             opneform();
         }
 
-        function showSuccessMessage() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Thank you for submitting!',
-                showCancelButton: true,
-                showConfirmButton: true,
-                confirmButtonText: 'Download Coupon',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Download the coupon image
-                    var prizeImage = document.getElementById("prize-image");
-                    var prizeImageUrl = prizeImage.src;
-                    fetch(prizeImageUrl)
-                        .then(response => response.blob())
-                        .then(blob => {
-                            const url = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.style.display = 'none';
-                            a.href = url;
-                            a.download = 'coupon_image.jpg'; // Specify the desired filename
-                            document.body.appendChild(a);
-                            a.click();
-                            window.URL.revokeObjectURL(url);
-                        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('myForm2');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const number = document.getElementById('number').value;
+                const goal = document.getElementById('goal').value;
+
+                if (!name || !number || !goal) {
+                    Swal.fire('Error!', 'Please fill in all the required fields.', 'error');
+                    return;
                 }
-                form.reset();
-                $('#myModal2').modal('hide');
+
+                // Create an object to hold the form data
+                const formData = {
+                    name: name,
+                    mobile: number,
+                    email: 'N/A',
+                    subject: 'Coupon Offer',
+                    messages: `Fitness Goal: ${goal}`
+                };
+
+                fetch('https://admin.spinexglobal.com/admin/inquiry', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (response.status === 201) {
+                            form.reset();
+                            $('#poupform').modal('hide');
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank you for submitting!',
+                                showCancelButton: true,
+                                showConfirmButton: true,
+                                confirmButtonText: 'Download Coupon',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Download the coupon image
+                                    var prizeImage = document.getElementById("prize-image");
+                                    var prizeImageUrl = prizeImage.src;
+                                    fetch(prizeImageUrl)
+                                        .then(response => response.blob())
+                                        .then(blob => {
+                                            const url = window.URL.createObjectURL(blob);
+                                            const a = document.createElement('a');
+                                            a.style.display = 'none';
+                                            a.href = url;
+                                            a.download = 'coupon_image.jpg'; // Specify the desired filename
+                                            document.body.appendChild(a);
+                                            a.click();
+                                            window.URL.revokeObjectURL(url);
+                                        });
+                                }
+                            });
+                        } else {
+                            Swal.fire('Error!', 'Failed to submit the form. Please try again later.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire('Error!', 'An error occurred while submitting the form.', 'error');
+                    });
             });
-        }
+        });
     </script>
     <script>
         var timeoutID;
 
         function showModal() {
-            $('#ScratchPopup').modal();
+            $('#ScratchPopup').modal('show');
         }
 
-        timeoutID = setTimeout(showModal, 1000);
+        timeoutID = setTimeout(showModal, 15000);
 
         $('#video-btn').on('click', function () {
             clearTimeout(timeoutID);
@@ -1946,8 +1986,8 @@
 
         $('.flashy-close').on('click', function () {
             setTimeout(function () {
-                $('#ScratchPopup').modal();
-            }, 1000);
+                $('#ScratchPopup').modal('show');
+            }, 15000);
         });
     </script>
 

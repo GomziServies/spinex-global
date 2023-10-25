@@ -1944,17 +1944,14 @@
                                 confirmButtonText: 'Download Coupon',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    // Download the coupon image
-                                    var prizeImage = document.getElementById("prize-image");
-                                    var prizeImageUrl = prizeImage.src;
-                                    fetch(prizeImageUrl)
+                                    fetch('/images/spinexcoupon.pdf') // Replace with the actual URL of the image
                                         .then(response => response.blob())
                                         .then(blob => {
                                             const url = window.URL.createObjectURL(blob);
                                             const a = document.createElement('a');
                                             a.style.display = 'none';
                                             a.href = url;
-                                            a.download = 'coupon_image.jpg'; // Specify the desired filename
+                                            a.download = 'coupon.pdf'; // Specify the desired filename
                                             document.body.appendChild(a);
                                             a.click();
                                             window.URL.revokeObjectURL(url);
@@ -1978,7 +1975,7 @@
             $('#ScratchPopup').modal('show');
         }
 
-        timeoutID = setTimeout(showModal, 15000);
+        timeoutID = setTimeout(showModal, 1000);
 
         $('#video-btn').on('click', function () {
             clearTimeout(timeoutID);
@@ -1987,7 +1984,7 @@
         $('.flashy-close').on('click', function () {
             setTimeout(function () {
                 $('#ScratchPopup').modal('show');
-            }, 15000);
+            }, 1000);
         });
     </script>
 

@@ -93,6 +93,56 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1561877107672003&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
+    <style>
+        .review-ml a {
+            margin-left: 5px;
+        }
+        .notification-box.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+}
+
+.notification-box {
+    background: lightgreen;
+    border-radius: 10px;
+    bottom: 10px;
+    box-shadow: 1px 1px 1px 1px #000;
+    left: 30px;
+    margin: 20px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 10px;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: opacity .5s ease-in-out;
+    width: 300px;
+    z-index: 999;
+}
+.notification-body h4 {
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.notification-body p {
+    color: #000000;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.notification-bg-img {
+    bottom: -25px;
+    overflow: hidden;
+    position: absolute;
+    right: -5px;
+}
+.notification-bg-img img {
+    width: 100px;
+}
+
+    </style>
 </head>
 
 <body>
@@ -203,15 +253,11 @@
     <section class="nmm">
         <div class="counter-area">
             <div class="container">
-                <!-- <div class="section-title text-center position-relative pb-3 mb-lg-5 mb-sm-4 mx-auto"
-                    style="max-width: 600px;">
-                    <h2 class="mb-0">Our Achievements</h2>
-                </div> -->
                 <div class="row justify-content-center wow animate__animated animate__fadeIn" data-wow-delay="500ms">
                     <div class="col-lg-3 col-6 pb-5">
                         <div class="single-counter"><i class="fas fa-globe-americas fa-xs"></i>
                             <div class="d-flex justify-content-center">
-                                <h2 data-toggle="counter-up">200000</h2> <span
+                                <h2 id="number1">200000</h2> <span
                                     style="font-size: 30px;margin-left: 5px; margin-top: -13px;">+</span>
                             </div>
                             <p>Surgeries avoided</p>
@@ -220,7 +266,7 @@
                     <div class="col-lg-3 col-6 pb-5">
                         <div class="single-counter"><i class="fas fa-user-md fa-xs"></i>
                             <div class="d-flex justify-content-center">
-                                <h2 data-toggle="counter-up">60</h2> <span
+                                <h2 id="number2">60</h2> <span
                                     style="font-size: 30px;margin-left: 5px; margin-top: -13px;">+</span>
                             </div>
                             <p>Expert Doctors</p>
@@ -229,7 +275,7 @@
                     <div class="col-lg-3 col-6 pb-5">
                         <div class="single-counter"><i class="fas fa-procedures fa-xs"></i>
                             <div class="d-flex justify-content-center">
-                                <h2 data-toggle="counter-up">400000</h2> <span
+                                <h2 id="number3">400000</h2> <span
                                     style="font-size: 30px;margin-left: 5px; margin-top: -13px;">+</span>
                             </div>
                             <p>Total patients</p>
@@ -238,7 +284,7 @@
                     <div class="col-lg-3 col-6 pb-5">
                         <div class="single-counter"><i class="fas fa-calendar-alt fa-xs"></i>
                             <div class="d-flex justify-content-center">
-                                <h2 class="number4" data-toggle="counter-up">27</h2> <span
+                                <h2 id="number4">27</h2> <span
                                     style="font-size: 30px;margin-left: 5px; margin-top: -13px;">+</span>
                             </div>
                             <p>Years Of Experiences</p>
@@ -252,49 +298,53 @@
         <div class="container-fluid">
             <div class="col-md-12 text-center title-heading px-0 px-md-3">
                 <div class="section-title text-center position-relative mx-auto" style="max-width: 600px;">
-                    <h5 class="fw-bold text-color text-uppercase"> Our Rivews</h5>
-                    <h2 class="mb-0">What Our Client Says?</h2>
+                    <h5 class="fw-bold text-color text-uppercase pt-4 text-center mt-3"> Our Rivews</h5>
+                    <h2 class="mb-3 text-center mt-2">What Our Client Says?</h2>
                 </div>
-                <div class="btn-branch text-center wow animate__animated animate__fadeInDown mt-md-0">
+                <div class="btn-branch  wow animate__animated animate__fadeInDown mt-md-0 m-0 p-0">
                     <div class="review-ml">
                         <div class="row">
                             <a href="javascript:void(0);" id="review-1">
                                 <div class="main-round-2">
                                     <div class="small-round-2">
-                                        <img data-src="/images/review-min-img.png" src="/images/review-min-img.png"
-                                            alt="reviews" class="lazy" width="100%">
+                                        <img data-src="/images/pains/shoulder-min.png"
+                                            src="/images/pains/shoulder-min.png" alt="reviews" class="lazy"
+                                            width="100%">
                                     </div>
                                 </div>
                             </a>
                             <a href="javascript:void(0);" id="review-2">
                                 <div class="main-round-2">
                                     <div class="small-round-2">
-                                        <img data-src="/images/reviwe-min-img.png" src="/images/reviwe-min-img.png"
+                                        <img data-src="images/pains/back-pain-2.jpg" src="images/pains/back-pain-2.jpg"
                                             alt="reviews" class="lazy" width="100%">
                                     </div>
                                 </div>
                             </a>
-                            <a href="javascript:void(0);" id="review-3">
+                            <!-- <a href="javascript:void(0);" id="review-3">
                                 <div class="main-round-2">
                                     <div class="small-round-2">
-                                        <img data-src="/images/kneepace-2.png" src="/images/kneepace-2.png"
-                                            alt="reviews" class="lazy" width="100%">
+                                        <img data-src="/images/pains/elbow-pain-min.png"
+                                            src="/images/pains/elbow-pain-min.png" alt="reviews" class="lazy"
+                                            width="100%">
                                     </div>
                                 </div>
                             </a>
                             <a href="javascript:void(0);" id="review-4">
                                 <div class="main-round-2">
                                     <div class="small-round-2">
-                                        <img data-src="/images/back-painpace.png" src="/images/back-painpace.png"
-                                            alt="reviews" class="lazy" width="100%">
+                                        <img data-src="/images/review-banner/heel.jpeg"
+                                            src="/images/review-banner/heel.jpeg" alt="reviews" class="lazy"
+                                            width="100%">
                                     </div>
                                 </div>
-                            </a>
+                            </a> -->
                             <a href="javascript:void(0);" id="review-5">
                                 <div class="main-round-2">
                                     <div class="small-round-2">
-                                        <img data-src="/images/new.jpeg" src="/images/new.jpeg" alt="reviews"
-                                            class="lazy" width="100%">
+                                        <img data-src="/images/pains/knee-pain-min.png"
+                                            src="/images/pains/knee-pain-min.png" alt="reviews" class="lazy"
+                                            width="100%">
                                     </div>
                                 </div>
                             </a>
@@ -304,71 +354,176 @@
             </div>
             <div class="container wow animate__animated animate__fadeInLeft" data-wow-delay="500ms">
                 <div class="review-1 mt-md-5">
-                    <div class="video-img mt-md-0 mt-4">
-                        <div class="ply1 black-before-1 mb-lg-5">
-                            <img class="" data-src="/images/reviwe-thubnil.webp" width="95%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/reviwe-thubnil.webp">
-                            <div class="video-btn">
-                                <a href="https://www.youtube.com/embed/2YIjM3d6b5U" allow="accelerometer; autoplay;"
-                                    data-flashy-type="video" class="custom">
-                                    <span class="newthing-2"><i class="fas fa-play"></i></span>
-                                </a>
+                    <div class="owl-carousel review">
+
+                        
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-4">
+                                    <img class="" data-src="/images/reviwe-thubnil.webp" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/sholder-pain.png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=PDrL04aANM0"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-4">
+                                    <img class="" data-src="/images/reviwe-thubnil.webp" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/amaratlal (1).png">
+                                    <div class="video-btn">
+                                        <a href="https://youtu.be/MXS-eaZjcGY?si=716VilLtSVfXd7D-"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="review-2 mt-md-5" style="display: none;">
-                    <div class="video-img mt-md-0 mt-4">
-                        <div class="ply1 black-before-1 mb-lg-5">
-                            <img class="" data-src="/images/reviwe-thubnil-2.webp" width="95%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/reviwe-thubnil-2.webp">
-                            <div class="video-btn">
-                                <a href="https://www.youtube.com/embed/6lJyfYLMNfI" allow="accelerometer; autoplay;"
-                                    data-flashy-type="video" class="custom">
-                                    <span class="newthing-2"><i class="fas fa-play"></i></span>
-                                </a>
+                    <div class="owl-carousel review">
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/back-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/back-pain (1).png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/embed/6lJyfYLMNfI"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/back-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/back-pain (2).png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=6oc58jYRhfw"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="review-3 mt-md-5" style="display: none;">
-                    <div class="video-img mt-md-0 mt-4">
-                        <div class="ply1 black-before-1 mb-lg-5">
-                            <img class="" data-src="/images/back-pain-thubnnile.png" width="95%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/back-pain-thubnnile.png">
-                            <div class="video-btn">
-                                <a href="https://youtu.be/6oc58jYRhfw" allow="accelerometer; autoplay;"
-                                    data-flashy-type="video" class="custom">
-                                    <span class="newthing-2"><i class="fas fa-play"></i></span>
-                                </a>
+                    <div class="owl-carousel review">
+
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="images/knee-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="images/review-banner/elbow.png">
+                                    <div class="video-btn">
+                                        <a href="https://youtu.be/-aipDeihzJY?si=7D5SyDSO3-Xzk-g4"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="images/knee-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="images/review-banner/elbow.png">
+                                    <div class="video-btn">
+                                        <a href="https://youtu.be/-aipDeihzJY?si=7D5SyDSO3-Xzk-g4"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="review-4 mt-md-5" style="display: none;">
-                    <div class="video-img mt-md-0 mt-4">
-                        <div class="ply1 black-before-1 mb-lg-5">
-                            <img class="" data-src="/images/reviwe-thubnil-2.webp" width="95%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/backpaine-thubnil.png">
-                            <div class="video-btn">
-                                <a href="https://youtu.be/l72fd7BmA80" allow="accelerometer; autoplay;"
-                                    data-flashy-type="video" class="custom">
-                                    <span class="newthing-2"><i class="fas fa-play"></i></span>
-                                </a>
+                    <div class="owl-carousel review">
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/reviwe-thubnil-2.webp" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/heel-pain.png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=G6-fKn5UCGY" allow="accelerometer; autoplay;"
+                                            data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/reviwe-thubnil-2.webp" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/heel-pain.png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=G6-fKn5UCGY" allow="accelerometer; autoplay;"
+                                            data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="review-5 mt-md-5" style="display: none;">
-                    <div class="video-img mt-md-0 mt-4">
-                        <div class="ply1 black-before-1 mb-lg-5">
-                            <img class="" data-src="/images/reviwe-thubnil-2.webp" width="95%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/review-min-img (2).png">
-                            <div class="video-btn">
-                                <a href="https://youtube.com/shorts/rNCai0IIjUU" allow="accelerometer; autoplay;"
-                                    data-flashy-type="video" class="custom">
-                                    <span class="newthing-2"><i class="fas fa-play"></i></span>
-                                </a>
+                    <div class="owl-carousel review">
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/back-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/knee-pain.png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=44x8htJtTU0"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="video-img mt-md-0 mt-4 col-md-9">
+                                <div class="ply1 black-before-1 mb-lg-5">
+                                    <img class="" data-src="/images/back-customer-review.png" width="95%"
+                                        style="border-radius: 10px;" alt="client journey"
+                                        src="/images/review-banner/knee-pain-mansi.png">
+                                    <div class="video-btn">
+                                        <a href="https://www.youtube.com/watch?v=9_crkuh_Jwk"
+                                            allow="accelerometer; autoplay;" data-flashy-type="video" class="custom">
+                                            <span class="newthing-2"><i class="fas fa-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -838,7 +993,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
                         <div class="ply1 wow animate__animated animate__fadeInLeft">
                             <img class="mb-3 mb-lg-0" data-src="/images/ntks.jpg" width="100%"
-                                style="border-radius: 10px;" alt="client journey" src="/images/ntks.jpg">
+                                style="border-radius: 10px;" alt="client journey" src="/images/pains/neuro-rehab.jpeg">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 content-column">
@@ -1332,6 +1487,40 @@
             </div>
         </div>
     </section>
+    <!-- <section>
+        <div class="container-fluid mt-5 pt-5">
+            <div class="container">
+                <div class="row">
+                  
+                    <div class="col-lg-6 describe wow animate__animated animate__fadeInRight mt-3">
+                        <h1 class="mt-0" style="color: #333;">Best <span
+                                style="color: #0dd606;margin: 0px;">Educational</span> Program</h1>
+                        <p>We take pride in being recognized as one of the best physiotherapy clinics, offering
+                            exceptional care and treatment outcomes. Our commitment to excellence and patient
+                            satisfaction sets us apart.We take pride in being recognized as one of the best
+                            physiotherapy clinics offering exceptional care and treatment outcomes.We take...</p>
+                        <p class="moretext">
+
+                            pride in
+                            being recognized as one of the best physiotherapy clinics, offering
+                            exceptional care and treatment outcomes.</p>
+                        <div class="free">
+                            <a href="" class="btn  rounded btn-lg mt-3 btn-start-2 ">Read
+                                more</a>
+                            <!-- <a href="pdf/fg-group.pdf" download="" class="btn btn-danger mt-3" target="_blank">Download
+                                PDF</a> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
+                        <div
+                            style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                           <img src="images/spinex-thambnial.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
     <!-- <section class="">
         <div class="container-fluid pb-5">
             <div class="container">
@@ -1710,11 +1899,14 @@
                                     <div class="section-title section-title-sm position-relative pb-3 mb-4">
                                         <h3 class="text-light mb-0">Our Branches</h3>
                                     </div>
+
                                     <div class="d-flex mb-2">
                                         <i class="fas fa-map-marker-alt text-color mr-2 mt-1"></i>
-                                        <a href="https://maps.app.goo.gl/gFgwJffTA6zHtaV49" class="mb-0">
-                                            <p> Spinex.Global A-11, Shilpi Society, Morarji Nagar, Rander, Surat,
-                                                Gujarat 395005</p>
+                                        <a href="https://maps.app.goo.gl/hyEWh3trsgZjegmW7" class="mb-0">
+                                            <p>Spinex.Global, Before Kalamandir
+                                                jwellers, Ghod Dod Rd, next to Andhjan Shikshan Mandal, Athwa, Surat,
+                                                Gujarat
+                                                395003</p>
                                         </a>
                                     </div>
                                     <div class="d-block d-md-none">
@@ -1725,11 +1917,9 @@
                                     </div>
                                     <div class="d-flex mb-2">
                                         <i class="fas fa-map-marker-alt text-color mr-2 mt-1"></i>
-                                        <a href="https://maps.app.goo.gl/hyEWh3trsgZjegmW7" class="mb-0">
-                                            <p>Spinex.Global, Before Kalamandir
-                                                jwellers, Ghod Dod Rd, next to Andhjan Shikshan Mandal, Athwa, Surat,
-                                                Gujarat
-                                                395003</p>
+                                        <a href="https://maps.app.goo.gl/gFgwJffTA6zHtaV49" class="mb-0">
+                                            <p> Spinex.Global A-11, Shilpi Society, Morarji Nagar, Rander, Surat,
+                                                Gujarat 395005</p>
                                         </a>
                                     </div>
                                     <div class="d-block d-md-none">
@@ -1747,13 +1937,13 @@
                                     <div class="d-flex mb-2">
                                         <i class="fas fa-envelope text-color mr-2 mt-1"></i>
                                         <a href="mailto:drnirajbhansali@gmail.com">
-                                            <p>drnirajbhansali@gmail.com</p>
+                                            <p>Info@spinexglobal.com</p>
                                         </a>
                                     </div>
                                     <div class="d-flex mb-2">
                                         <i class="fas fa-phone-alt text-color mr-2 mt-1"></i>
                                         <a href="tel:8000200063">
-                                            <p>+91 80002 00063</p>
+                                            <p>+91 9825124384</p>
                                         </a>
                                     </div>
                                     <div>
@@ -1878,6 +2068,19 @@
             </div>
         </div>
     </div>
+
+    <div class="notification-box slide-in" id="notificationBox">
+        <div class="notification-icon" style="position: relative;">
+            <button style="top: -10px; position: absolute; padding: 5px 5px; background: transparent;border: none;right: -10px;" data-dismiss="modal" aria-label="Close" onclick="removeNotification()"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="notification-body">
+            <h4 class="mb-0">Every ThursDay Consultancy Free in Adajan!</h4>
+            <p class="mt-1">Let's Connect</p>
+        </div>
+        <div class="notification-bg-img"><img src="images/notifiacation-bg-img.png" alt=""
+                class="img-fluid"></div>
+    </div>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -1891,16 +2094,19 @@
     <script src="./js/sweetalert2.js"></script>
     <script src="./js/owl.carousel.js"></script>
     <script src="./js/wow.min.js"></script>
-
     <script>
         new WOW().init();
     </script>
+  <script>
+    function removeNotification() {
+    document.getElementById('notificationBox').style.display = 'none';
+}
+</script>
     <script>
         function closeScratchPopupAndOpenForm() {
             document.getElementById("ScratchPopup").style.display = "none";
             opneform();
         }
-
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('myForm2');
 
@@ -1915,8 +2121,6 @@
                     Swal.fire('Error!', 'Please fill in all the required fields.', 'error');
                     return;
                 }
-
-                // Create an object to hold the form data
                 const formData = {
                     name: name,
                     mobile: number,
@@ -1924,7 +2128,6 @@
                     subject: 'Coupon Offer',
                     messages: `Fitness Goal: ${goal}`
                 };
-
                 fetch('https://admin.spinexglobal.com/admin/inquiry', {
                     method: 'POST',
                     body: JSON.stringify(formData),
@@ -1970,24 +2173,19 @@
     </script>
     <script>
         var timeoutID;
-
         function showModal() {
             $('#ScratchPopup').modal('show');
         }
-
         timeoutID = setTimeout(showModal, 1000);
-
         $('#video-btn').on('click', function () {
             clearTimeout(timeoutID);
         });
-
         $('.flashy-close').on('click', function () {
             setTimeout(function () {
                 $('#ScratchPopup').modal('show');
             }, 1000);
         });
     </script>
-
     </script>
     <script type="text/javascript">
         (function () {
@@ -2007,7 +2205,7 @@
                 mobile: mobile,
                 message: message,
             };
-
+            
             emailjs.send("service_bqjkpi3", "template_7bs8sxl", formData)
                 .then(function (response) {
                     console.log("Email sent successfully", response.status, response.text);
@@ -2018,17 +2216,16 @@
                         text: 'We will contact you soon.'
                     });
 
-                    // Reset the form after successful submission if needed
                     document.getElementById("Name").value = "";
                     document.getElementById("Sender").value = "";
                     document.getElementById("Number").value = "";
                     document.getElementById("Message").value = "";
-
+                    
                     return false;
                 })
                 .catch(function (error) {
                     console.error("Error sending email", error);
-
+                    
                     Swal.fire({
                         icon: 'error',
                         title: 'Invalid credentials',
@@ -2038,7 +2235,7 @@
                     return false;
                 });
         }
-
+        
         function sendSecondForm() {
             const name = document.getElementById("name").value;
             const mobile = document.getElementById("mobile").value;
@@ -2152,34 +2349,34 @@
         });
     </script>
     <script>
-        $.fn.jQuerySimpleCounter = function (options) {
-            var settings = $.extend({
-                start: 0,
-                end: 100,
-                easing: 'swing',
-                duration: 400,
-                complete: ''
-            }, options);
+        $(document).ready(function () {
+            $.fn.jQuerySimpleCounter = function (options) {
+                var settings = $.extend({
+                    start: 0,
+                    end: 100,
+                    easing: 'swing',
+                    duration: 400,
+                    complete: ''
+                }, options);
 
-            var thisElement = $(this);
+                var thisElement = $(this);
 
-            $({ count: settings.start }).animate({ count: settings.end }, {
-                duration: settings.duration,
-                easing: settings.easing,
-                step: function () {
-                    var mathCount = Math.ceil(this.count);
-                    thisElement.text(mathCount);
-                },
-                complete: settings.complete
-            });
-        };
+                $({ count: settings.start }).animate({ count: settings.end }, {
+                    duration: settings.duration,
+                    easing: settings.easing,
+                    step: function () {
+                        var mathCount = Math.ceil(this.count);
+                        thisElement.text(mathCount);
+                    },
+                    complete: settings.complete
+                });
+            };
 
-
-        $('#number2').jQuerySimpleCounter({ end: 60, duration: 9000 });
-        $('#number1').jQuerySimpleCounter({ end: 400000, duration: 9000 });
-        $('#number3').jQuerySimpleCounter({ end: 200000, duration: 9000 });
-        $('#number4').jQuerySimpleCounter({ end: 27, duration: 9000 });
-
+            $('#number2').jQuerySimpleCounter({ end: 60, duration: 15000 });
+            $('#number1').jQuerySimpleCounter({ end: 200000, duration: 55000 });
+            $('#number3').jQuerySimpleCounter({ end: 400000, duration: 55000 });
+            $('#number4').jQuerySimpleCounter({ end: 27, duration: 15000 });
+        });
     </script>
     <script>
         jQuery("#owl-review, #owl-review-1").owlCarousel({
@@ -2234,6 +2431,39 @@
                 }
             }
         });
+
+
+
+        jQuery(".review").owlCarousel({
+            autoplay: true,
+            responsiveClass: true,
+            autoHeight: false,
+            margin: 5,
+            autoplayTimeout: 3000,
+            smartSpeed: 800,
+            nav: true,
+            dots: true,
+            loop: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+
+                600: {
+                    items: 1
+                },
+
+                1024: {
+                    items: 1
+                },
+
+                1366: {
+                    items: 1
+                }
+            }
+        });
+
+
     </script>
     <script>
         $('.readmore-button').click(function () {

@@ -375,9 +375,7 @@
     height: 470 !important;
   }
 
-  .review-ml {
-    margin-left: 14%;
-  }
+ 
 
   .fwg-affordenle-btn a {
     padding: 4px 5px;
@@ -588,8 +586,33 @@
   }
 
 }
-
+@media (max-width: 575.98px) {
+  .owl-nav span {
+      position: relative;
+      font-size: 50px;
+      top: 72px;
+  }
+  .newthing-2 {
+    background-color: #fff;
+    border-radius: 100%;
+    color: #5bb763;
+    position: relative;
+    display: flex;
+    margin-right: -43px;
+    line-height: 50px;
+    font-size: 18px !important;
+    align-items: center;
+    margin-left: 0;
+    height: 50px;
+    width: 50px;
+    bottom: 124px;
+    margin-left: 112px;
+    justify-content: center;
+}
+}
+  
 @media (min-width: 576px) and (max-width: 767px) {
+
   .main {
     height: 60px;
   }

@@ -794,7 +794,7 @@ footer img {
 .owl-nav span {
   position: relative;
   font-size: 50px;
-  top: 88px;
+  top: 170px;
 }
 
 .owl-nav button {
@@ -1958,8 +1958,11 @@ header .active {
 
 
 .review-ml {
-  margin-left: 40%;
-}
+  margin-left: 0%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;}
 
 .black-before-1 img {
   width: 760px;
@@ -2375,10 +2378,6 @@ ul.social li a {
   font-size: 1.2rem;
 }
 
-.fade-out {
-  -webkit-animation: fade-out 0.8s;
-  -webkit-animation-fill-mode: forwards;
-}
 
 @keyframes fade-out {
   0% {

@@ -1537,13 +1537,7 @@
                                     <img class="img-fluid" src="/images/blog/back-pain-blog.webp" alt="">
                                 </div>
                                 <div class="p-3">
-                                    <div class="d-flex mb-3">
-                                        <small class="me-5 text-dark"><i class="fas fa-user"
-                                                style="color: #15d522;"></i>&nbsp; John
-                                            Doe</small>
-                                        <small class="me-5 ml-3 text-dark"><i class="fas fa-calendar-alt me-1"
-                                                style="color: #15d522;"></i>&nbsp; 01 Jan, 2045</small>
-                                    </div>
+                                     
                                     <h4 class="mb-3">How Physiotherapy Can Help Alleviate Back Pain:Techniques and Tips
                                     </h4>
                                     <p>Back pain is a common ailment that affects millions of people worldwide. It can
@@ -1563,13 +1557,7 @@
                                     <img class="img-fluid" src="/images/blog/posture-img.webp" width="355px" alt="">
                                 </div>
                                 <div class="p-3">
-                                    <div class="d-flex mb-3">
-                                        <small class="me-5 text-dark"><i class="fas fa-user"
-                                                style="color: #15d522;"></i>&nbsp; John
-                                            Doe</small>
-                                        <small class="me-5 ml-3 text-dark"><i class="fas fa-calendar-alt me-1"
-                                                style="color: #15d522;"></i>&nbsp; 01 Jan, 2045</small>
-                                    </div>
+                                     
                                     <h4 class="mb-3">7 Essential Physiotherapy Exercises
                                         for Posture Correction
                                     </h4>
@@ -1589,13 +1577,7 @@
                                     <img class="img-fluid" src="/images/blog/sport-injury.webp" width="355px" alt="">
                                 </div>
                                 <div class="p-3">
-                                    <div class="d-flex mb-3">
-                                        <small class="me-5 text-dark"><i class="fas fa-user"
-                                                style="color: #15d522;"></i>&nbsp; John
-                                            Doe</small>
-                                        <small class="me-5 ml-3 text-dark"><i class="fas fa-calendar-alt me-1"
-                                                style="color: #15d522;"></i>&nbsp; 01 Jan, 2045</small>
-                                    </div>
+                                     
                                     <h4 class="mb-3">Recovering from a Sports Injury: A
                                         Comprehensive <br> Guide</h4>
                                     <p>Sports injuries can be frustrating and debilitating, often leaving athletes
